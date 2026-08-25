@@ -14,7 +14,7 @@ public class FestpayContextFactory : IDesignTimeDbContextFactory<FestpayContext>
     public FestpayContext CreateDbContext(string[] args)
     {
         var connectionString = Environment.GetEnvironmentVariable("DATABASE_CONNECTION_STRING") ?? throw new Exception("Connection string not found");
-
+        
         // SQLite
         var optionsBuilder = new DbContextOptionsBuilder<FestpayContext>();
         optionsBuilder

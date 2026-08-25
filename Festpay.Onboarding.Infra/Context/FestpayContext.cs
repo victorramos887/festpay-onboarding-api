@@ -22,8 +22,6 @@ public class FestpayContext(DbContextOptions<FestpayContext> options) : DbContex
         {
             warnings.Ignore(CoreEventId.NavigationBaseIncludeIgnored);
         });
-
-        new FestpayContextFactory().CreateDbContext();
     }
 
     public static FestpayContext CreateDbContext() => new FestpayContextFactory().CreateDbContext();
