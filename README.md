@@ -41,3 +41,51 @@ Deverá ser desenvolvido métodos para:
   - Tecnologias utilizadas
   - Instruções para rodar o projeto
 - As instruções para envio do projeto deverão seguir as orientações enviadas pelo recrutador.
+
+---
+
+## 🛠️ Tecnologias utilizadas
+
+- .NET 9
+- C#
+- ASP.NET Core Web API
+- Carter
+- MediatR
+- FluentValidation
+- Entity Framework Core
+- SQLite / InMemory para testes
+- Swagger / OpenAPI
+- xUnit
+
+---
+
+## 🚀 Como rodar o projeto
+
+### Pré-requisitos
+
+- .NET 9 SDK instalado
+
+### Executar a aplicação
+
+1. Restaurar os pacotes:
+  - `dotnet restore`
+2. Subir a API:
+  - `dotnet run --project Festpay.Onboarding.Api`
+3. Acessar o Swagger para testar os endpoints:
+  - `/swagger`
+
+### Executar os testes
+
+1. Rodar os testes de aplicação:
+  - `dotnet test tests/Festpay.Onboarding.Application.Tests/Festpay.Onboarding.Application.Tests.csproj`
+2. Rodar os testes de domínio:
+  - `dotnet test tests/Festpay.Onboarding.Domain.Tests/Festpay.Onboarding.Domain.Tests.csproj`
+
+---
+
+## ✅ O que foi implementado
+
+- Entidade `Transaction`
+- CRUD de transações
+- Testes de domínio
+- Testes de aplicação
