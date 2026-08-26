@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
+using DomainTransaction = Festpay.Onboarding.Domain.Entities.Transaction;
 
 namespace Festpay.Onboarding.Application.Features.V1;
 
@@ -50,7 +51,7 @@ public sealed class CreateTransactionCommandHandler(FestpayContext dbContext)
         if (!destinationExists)
             throw new NotFoundException("Destination account");
 
-        var transaction = new Transaction.Builder()
+        var transaction = new DomainTransaction.Builder()
             .WithOriginAccountId(request.OriginAccountId)
             .WithDestinationAccountId(request.DestinationAccountId)
             .WithAmount(request.Amount)
