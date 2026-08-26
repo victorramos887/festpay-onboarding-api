@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 
+namespace Festpay.Onboarding.Application.Features.V1.Transaction;
+
 public static class GetTransactionById
 {
     public sealed record Query(Guid Id) : IRequest<Response?>;
