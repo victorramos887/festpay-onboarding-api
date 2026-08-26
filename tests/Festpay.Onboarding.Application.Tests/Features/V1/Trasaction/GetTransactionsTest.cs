@@ -2,6 +2,9 @@ using Festpay.Onboarding.Infra.Context;
 using Microsoft.EntityFrameworkCore;
 using Festpay.Onboarding.Application.Features.V1.Transaction;
 using Festpay.Onboarding.Domain.Entities;
+using DomainTransaction = Festpay.Onboarding.Domain.Entities.Transaction;
+
+namespace Festpay.Onboarding.Application.Tests.Features.V1.Transaction;
 
 public class GetTransactionsTest
 {
@@ -37,7 +40,7 @@ public class GetTransactionsTest
         var destinationAccountId = Guid.NewGuid();
         var amount = 100.00m;
 
-        var transaction = new Transaction.Builder()
+        var transaction = new DomainTransaction.Builder()
             .WithOriginAccountId(originAccountId)
             .WithDestinationAccountId(destinationAccountId)
             .WithAmount(amount)

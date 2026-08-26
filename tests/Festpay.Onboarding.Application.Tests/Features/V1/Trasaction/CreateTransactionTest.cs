@@ -4,7 +4,7 @@ using Festpay.Onboarding.Domain.Entities;
 using Festpay.Onboarding.Infra.Context;
 using Microsoft.EntityFrameworkCore;
 
-namespace Festpay.Onboarding.Application.Tests.Features.V1.Trasaction;
+namespace Festpay.Onboarding.Application.Tests.Features.V1.Transaction;
 
 public class CreateTransactionTest
 {

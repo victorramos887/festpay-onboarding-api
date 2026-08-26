@@ -2,6 +2,9 @@ using Festpay.Onboarding.Application.Features.V1.Transaction;
 using Festpay.Onboarding.Domain.Entities;
 using Festpay.Onboarding.Infra.Context;
 using Microsoft.EntityFrameworkCore;
+using DomainTransaction = Festpay.Onboarding.Domain.Entities.Transaction;
+
+namespace Festpay.Onboarding.Application.Tests.Features.V1.Transaction;
 
 public class CancelTransactionTest
 {
@@ -32,7 +35,7 @@ public class CancelTransactionTest
     {
         await using var context = CreateContext();
 
-        var transaction = new Transaction.Builder()
+        var transaction = new DomainTransaction.Builder()
             .WithOriginAccountId(Guid.NewGuid())
             .WithDestinationAccountId(Guid.NewGuid())
             .WithAmount(100.00m)
