@@ -36,9 +36,15 @@ public class GetTransactionByIdTest
         // Arrange
         await using var context = CreateContext();
 
-        var transaction = new Transaction(
-            // mesmos parâmetros que você usa no CreateTransactionTest
-        );
+        var originAccountId = Guid.NewGuid();
+        var destinationAccountId = Guid.NewGuid();
+        var amount = 250.75m;
+
+        var transaction = new Transaction.Builder()
+            .WithOriginAccountId(originAccountId)
+            .WithDestinationAccountId(destinationAccountId)
+            .WithAmount(amount)
+            .Build();
 
         context.Transactions.Add(transaction);
         await context.SaveChangesAsync();
@@ -55,5 +61,9 @@ public class GetTransactionByIdTest
         // Assert
         Assert.NotNull(result);
         Assert.Equal(transaction.Id, result.Id);
+        Assert.Equal(transaction.OriginAccountId, result.OriginAccountId);
+        Assert.Equal(transaction.DestinationAccountId, result.DestinationAccountId);
+        Assert.Equal(transaction.Amount, result.Amount);
+        Assert.Equal(transaction.Cancelled, result.Cancelled);
     }
 }

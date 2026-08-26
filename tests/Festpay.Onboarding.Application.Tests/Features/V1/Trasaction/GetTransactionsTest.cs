@@ -33,9 +33,15 @@ public class GetTransactionsTest
     {
         await using var context = CreateContext();
 
-        var transaction = new Transaction(
-            // use os mesmos parâmetros do teste anterior
-        );
+        var originAccountId = Guid.NewGuid();
+        var destinationAccountId = Guid.NewGuid();
+        var amount = 100.00m;
+
+        var transaction = new Transaction.Builder()
+            .WithOriginAccountId(originAccountId)
+            .WithDestinationAccountId(destinationAccountId)
+            .WithAmount(amount)
+            .Build();
 
         context.Transactions.Add(transaction);
         await context.SaveChangesAsync();
@@ -48,5 +54,9 @@ public class GetTransactionsTest
 
         Assert.Single(result);
         Assert.Equal(transaction.Id, result[0].Id);
+        Assert.Equal(transaction.OriginAccountId, result[0].OriginAccountId);
+        Assert.Equal(transaction.DestinationAccountId, result[0].DestinationAccountId);
+        Assert.Equal(transaction.Amount, result[0].Amount);
+        Assert.Equal(transaction.Cancelled, result[0].Cancelled);
     }
 }
